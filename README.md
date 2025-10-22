@@ -740,6 +740,21 @@ This will:
 - Create comprehensive reports with HR recommendations
 - Generate 7 detailed visualizations
 
+### Generate Project Showcase PDF
+```bash
+python generate_project_pdf.py
+```
+
+This will create a comprehensive PDF document (`HR_Attrition_Prediction_Project_Showcase.pdf`) showcasing:
+- Clear and well-commented Python code samples
+- Visualized decision trees and model structure
+- Complete model performance metrics and comparisons
+- Feature importance analysis with visualizations
+- Prediction examples and business interpretations
+- ROI analysis and business recommendations
+- Professional formatting with title page, table of contents, and page numbers
+- **Perfect for presentations, stakeholder reviews, or portfolio showcases**
+
 ## Key Findings
 
 ### Data Quality
@@ -1066,6 +1081,7 @@ Employment-Machine-Learning-Model/
 ├── model_prediction_testing.py               # Task 5: Prediction testing script
 ├── model_optimization.py                     # Task 6: Model optimization script
 ├── feature_importance_analysis.py            # Task 7: Feature importance analysis script
+├── generate_project_pdf.py                   # Generate comprehensive PDF showcase
 ├── requirements.txt                          # Python dependencies
 ├── README.md                                 # Project documentation
 ├── PREPROCESSING_SUMMARY.txt                 # Data preprocessing summary
@@ -1140,7 +1156,10 @@ Employment-Machine-Learning-Model/
 ├── importance_methods_comparison.png         # Task 7: Gini vs Perm vs Corr vs Stat
 ├── consensus_features.png                    # Task 7: Top 20 by consensus
 ├── actionable_features_priority.png          # Task 7: HR intervention priorities
-└── feature_categories_importance.png         # Task 7: Business categories ranked
+├── feature_categories_importance.png         # Task 7: Business categories ranked
+│
+└── HR_Attrition_Prediction_Project_Showcase.pdf  # 📄 COMPREHENSIVE PROJECT PDF (3.7 MB)
+                                                    # Complete showcase with code, visualizations, metrics
 ```
 
 ## Author
