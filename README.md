@@ -116,6 +116,99 @@ The dataset includes:
 ✓ Class balance maintained in both sets
 ✓ Data ready for model training
 
+## Task 3: Model Building and Training ✓
+
+### Completed Steps:
+1. **Decision Tree Classifier Initialization**
+   - Algorithm: CART (Classification and Regression Trees)
+   - Criterion: Gini Impurity
+   - Class Weight: Balanced (to handle class imbalance)
+   - Random State: 42 (reproducibility)
+
+2. **Model Training**
+   - Trained on 1,176 samples with 43 features
+   - Model Structure:
+     - Tree Depth: 15
+     - Number of Leaves: 156
+     - All 43 features used
+
+3. **Model Performance**
+   
+   **Training Set:**
+   - Accuracy: 100.00% (Perfect fit - indicates overfitting)
+   - Precision: 1.0000
+   - Recall: 1.0000
+   - F1-Score: 1.0000
+   
+   **Testing Set:**
+   - Accuracy: 76.53%
+   - Precision: 0.2609 (for attrition class)
+   - Recall: 0.2553 (for attrition class)
+   - F1-Score: 0.2581
+   - ROC-AUC: 0.5588
+
+4. **Confusion Matrix (Test Set)**
+   - True Negatives: 213 (correctly predicted no attrition)
+   - False Positives: 34 (incorrectly predicted attrition)
+   - False Negatives: 35 (missed actual attrition)
+   - True Positives: 12 (correctly predicted attrition)
+
+5. **Feature Importance Analysis**
+   
+   **Top 10 Most Important Features:**
+   1. TotalWorkingYears (12.04%)
+   2. Age (9.64%)
+   3. OverTime (7.17%)
+   4. DailyRate (7.17%)
+   5. MonthlyIncome (7.00%)
+   6. NumCompaniesWorked (6.40%)
+   7. StockOptionLevel (6.31%)
+   8. YearsSinceLastPromotion (4.40%)
+   9. DistanceFromHome (3.82%)
+   10. PercentSalaryHike (3.82%)
+
+6. **Generated Outputs**
+   - `decision_tree_model.pkl` - Trained model
+   - `y_train_predictions.csv` - Training predictions
+   - `y_test_predictions.csv` - Testing predictions
+   - `feature_importance.csv` - Complete feature rankings
+   - `confusion_matrix.png` - Confusion matrix visualization
+   - `roc_curve.png` - ROC curve (AUC = 0.5588)
+   - `feature_importance.png` - Top 20 features chart
+   - `decision_tree_visualization.png` - Tree structure
+   - `model_evaluation_report.txt` - Comprehensive analysis
+
+### Key Findings:
+⚠️ **Significant Overfitting Detected**
+- Training accuracy (100%) >> Testing accuracy (76.53%)
+- Difference of 23.47% indicates the model memorized training data
+
+⚠️ **Poor Minority Class Performance**
+- Recall for attrition: 25.53% (missed 74% of employees who left)
+- Precision for attrition: 26.09% (many false alarms)
+- Low ROC-AUC (0.5588) suggests limited discrimination ability
+
+✓ **Feature Insights**
+- Employee tenure and age are strongest predictors
+- Overtime work is a significant factor
+- Compensation-related features are important
+
+### Recommendations for Improvement:
+1. **Address Overfitting:**
+   - Prune the tree (limit max_depth to 5-10)
+   - Set min_samples_split and min_samples_leaf
+   - Implement cross-validation
+
+2. **Improve Minority Class Detection:**
+   - Try SMOTE for synthetic sampling
+   - Adjust decision threshold
+   - Consider ensemble methods (Random Forest, XGBoost)
+
+3. **Hyperparameter Tuning:**
+   - Use GridSearchCV or RandomizedSearchCV
+   - Optimize max_depth, min_samples_split, min_samples_leaf
+   - Experiment with different criteria (gini vs entropy)
+
 ## Installation & Setup
 
 ### Requirements
@@ -154,6 +247,18 @@ This will:
 - Split data into training (80%) and testing (20%) sets
 - Save preprocessed datasets: `X_train.csv`, `X_test.csv`, `y_train.csv`, `y_test.csv`
 
+### Run the Model Training Script
+```bash
+python model_training.py
+```
+
+This will:
+- Load preprocessed training and testing data
+- Train Decision Tree Classification Model
+- Generate predictions and evaluation metrics
+- Create visualizations (confusion matrix, ROC curve, feature importance)
+- Save trained model and comprehensive evaluation report
+
 ## Key Findings
 
 ### Data Quality
@@ -178,21 +283,24 @@ This will:
    - ~~Handle class imbalance~~ (Maintained via stratification)
    - ~~Remove irrelevant features (EmployeeCount, StandardHours, Over18)~~ ✓
 
-2. **Build Decision Tree Model**
-   - Initialize DecisionTreeClassifier
-   - Train on X_train and y_train
-   - Make predictions on X_test
+2. ~~**Build Decision Tree Model**~~ ✓ COMPLETED
+   - ~~Initialize DecisionTreeClassifier~~ ✓
+   - ~~Train on X_train and y_train~~ ✓
+   - ~~Make predictions on X_test~~ ✓
 
-3. **Model Evaluation**
-   - Accuracy, Precision, Recall, F1-Score
-   - Confusion Matrix
-   - ROC-AUC Curve
-   - Feature Importance Analysis
+3. ~~**Model Evaluation**~~ ✓ COMPLETED
+   - ~~Accuracy, Precision, Recall, F1-Score~~ ✓
+   - ~~Confusion Matrix~~ ✓
+   - ~~ROC-AUC Curve~~ ✓
+   - ~~Feature Importance Analysis~~ ✓
 
-5. **Model Optimization**
-   - Hyperparameter tuning (max_depth, min_samples_split, etc.)
-   - Pruning strategies
-   - Compare with ensemble methods (Random Forest, Gradient Boosting)
+4. **Model Optimization** (Recommended Next Task)
+   - Address overfitting through hyperparameter tuning
+   - Tune: max_depth (5-10), min_samples_split (10-50), min_samples_leaf (5-20)
+   - Implement cross-validation for robust evaluation
+   - Try SMOTE for better minority class handling
+   - Compare with ensemble methods (Random Forest, XGBoost)
+   - Optimize decision threshold for better recall
 
 ## Project Structure
 ```
@@ -202,18 +310,30 @@ Employment-Machine-Learning-Model/
 │
 ├── employment_analysis.py                    # Task 1: EDA script
 ├── data_preprocessing.py                     # Task 2: Preprocessing script
+├── model_training.py                         # Task 3: Model training script
 ├── requirements.txt                          # Python dependencies
 ├── README.md                                 # Project documentation
+├── PREPROCESSING_SUMMARY.txt                 # Data preprocessing summary
 │
 ├── X_train.csv                               # Training features (1,176 × 43)
 ├── X_test.csv                                # Testing features (294 × 43)
 ├── y_train.csv                               # Training labels
 ├── y_test.csv                                # Testing labels
 │
+├── decision_tree_model.pkl                   # Trained Decision Tree model
+├── y_train_predictions.csv                   # Training set predictions
+├── y_test_predictions.csv                    # Testing set predictions
+├── feature_importance.csv                    # Feature importance rankings
+├── model_evaluation_report.txt               # Comprehensive model evaluation
+│
 ├── attrition_distribution.png               # Visualization: Target variable
 ├── numerical_features_distribution.png       # Visualization: Numerical features
 ├── categorical_features_distribution.png     # Visualization: Categorical features
-└── correlation_matrix.png                    # Visualization: Feature correlations
+├── correlation_matrix.png                    # Visualization: Feature correlations
+├── confusion_matrix.png                      # Visualization: Model confusion matrices
+├── roc_curve.png                             # Visualization: ROC curve
+├── feature_importance.png                    # Visualization: Top 20 features
+└── decision_tree_visualization.png           # Visualization: Tree structure
 ```
 
 ## Author

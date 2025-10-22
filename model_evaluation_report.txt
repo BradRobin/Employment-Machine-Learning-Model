@@ -1,0 +1,164 @@
+
+================================================================================
+HR EMPLOYEE ATTRITION PREDICTION - MODEL EVALUATION REPORT
+================================================================================
+
+Date: Generated automatically
+Model: Decision Tree Classifier
+Algorithm: CART (Classification and Regression Trees)
+Criterion: Gini Impurity
+Class Weight: Balanced (to handle class imbalance)
+
+================================================================================
+DATASET INFORMATION
+================================================================================
+
+Training Set: 1176 samples, 43 features
+Testing Set:  294 samples, 43 features
+
+Class Distribution (Training):
+  No Attrition (0): 986 (83.84%)
+  Yes Attrition (1): 190 (16.16%)
+
+Class Distribution (Testing):
+  No Attrition (0): 247 (84.01%)
+  Yes Attrition (1): 47 (15.99%)
+
+================================================================================
+MODEL STRUCTURE
+================================================================================
+
+Tree Depth: 15
+Number of Leaves: 156
+Number of Features: 43
+
+================================================================================
+TRAINING SET PERFORMANCE
+================================================================================
+
+Accuracy:  1.0000 (100.00%)
+Precision: 1.0000
+Recall:    1.0000
+F1-Score:  1.0000
+
+Confusion Matrix:
+  True Negatives:  986
+  False Positives: 0
+  False Negatives: 0
+  True Positives:  190
+
+================================================================================
+TESTING SET PERFORMANCE
+================================================================================
+
+Accuracy:  0.7653 (76.53%)
+Precision: 0.2609
+Recall:    0.2553
+F1-Score:  0.2581
+ROC-AUC:   0.5588
+
+Confusion Matrix:
+  True Negatives:  213
+  False Positives: 34
+  False Negatives: 35
+  True Positives:  12
+
+================================================================================
+PERFORMANCE COMPARISON (Training vs Testing)
+================================================================================
+
+Metric          Training    Testing     Difference
+--------------------------------------------------------
+Accuracy        1.0000      0.7653      0.2347
+Precision       1.0000      0.2609      0.7391
+Recall          1.0000      0.2553      0.7447
+F1-Score        1.0000      0.2581      0.7419
+
+Overfitting Assessment:
+⚠ Model shows signs of overfitting
+
+================================================================================
+TOP 10 MOST IMPORTANT FEATURES
+================================================================================
+
+                Feature  Importance
+      TotalWorkingYears    0.120389
+                    Age    0.096402
+               OverTime    0.071746
+              DailyRate    0.071681
+          MonthlyIncome    0.070020
+     NumCompaniesWorked    0.063966
+       StockOptionLevel    0.063137
+YearsSinceLastPromotion    0.044014
+       DistanceFromHome    0.038248
+      PercentSalaryHike    0.038197
+
+================================================================================
+MODEL INTERPRETATION
+================================================================================
+
+Key Insights:
+1. Model Accuracy: 76.53% on unseen test data
+2. Recall for Attrition: 0.2553 (ability to catch employees who will leave)
+3. Precision for Attrition: 0.2609 (accuracy of positive predictions)
+4. ROC-AUC Score: 0.5588 (overall discrimination ability)
+
+Business Context:
+- True Positives (12): Correctly identified employees at risk of leaving
+- False Negatives (35): Missed employees who actually left
+- False Positives (34): Incorrectly flagged stable employees
+- True Negatives (213): Correctly identified stable employees
+
+The model prioritizes precision (accurate attrition predictions) based on class weighting.
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+1. Model Performance:
+   - Consider pruning or regularization to reduce overfitting.
+   
+2. Class Imbalance:
+   - Used class_weight='balanced' to handle 84/16 split
+   - Consider SMOTE or other sampling techniques for improvement
+   
+3. Feature Engineering:
+   - Focus on top features: TotalWorkingYears, Age, OverTime
+   - Consider creating interaction features from important variables
+   
+4. Model Optimization:
+   - Tune hyperparameters: max_depth, min_samples_split, min_samples_leaf
+   - Implement cross-validation for robust evaluation
+   - Compare with ensemble methods (Random Forest, XGBoost)
+
+5. Business Application:
+   - Use model for early identification of at-risk employees
+   - Implement retention strategies for high-probability attrition cases
+   - Regular model retraining with new data
+
+================================================================================
+OUTPUT FILES GENERATED
+================================================================================
+
+Model:
+✓ decision_tree_model.pkl          - Trained Decision Tree model
+
+Predictions:
+✓ y_train_predictions.csv          - Training set predictions
+✓ y_test_predictions.csv           - Testing set predictions
+
+Feature Analysis:
+✓ feature_importance.csv           - Complete feature importance rankings
+
+Visualizations:
+✓ confusion_matrix.png             - Confusion matrices (train & test)
+✓ roc_curve.png                    - ROC curve with AUC score
+✓ feature_importance.png           - Top 20 features chart
+✓ decision_tree_visualization.png  - Tree structure visualization
+
+Reports:
+✓ model_evaluation_report.txt      - This comprehensive report
+
+================================================================================
+END OF REPORT
+================================================================================
