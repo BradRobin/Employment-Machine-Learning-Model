@@ -1,0 +1,312 @@
+================================================================================
+FEATURE IMPORTANCE ANALYSIS REPORT
+HR Employee Attrition Prediction Model
+================================================================================
+
+Analysis Date: 2025-10-22 17:19
+Dataset: 1176 training samples, 294 test samples
+Total Features Analyzed: 43
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+TOP 10 MOST IMPORTANT FEATURES FOR PREDICTING EMPLOYEE ATTRITION:
+--------------------------------------------------------------------------------
+ 1. OverTime
+    Consensus Score: 0.0952
+    Random Forest Gini Rank: #4
+    Random Forest Perm Rank: #1
+
+ 2. StockOptionLevel
+    Consensus Score: 0.0952
+    Random Forest Gini Rank: #8
+    Random Forest Perm Rank: #7
+    Correlation with Attrition: 0.1371
+
+ 3. JobLevel
+    Consensus Score: 0.0901
+    Random Forest Gini Rank: #13
+    Random Forest Perm Rank: #16
+    Correlation with Attrition: 0.1691
+
+ 4. MonthlyIncome
+    Consensus Score: 0.0885
+    Random Forest Gini Rank: #1
+    Random Forest Perm Rank: #23
+    Correlation with Attrition: 0.1598
+
+ 5. Age
+    Consensus Score: 0.0820
+    Random Forest Gini Rank: #2
+    Random Forest Perm Rank: #8
+    Correlation with Attrition: 0.1592
+
+ 6. YearsWithCurrManager
+    Consensus Score: 0.0769
+    Random Forest Gini Rank: #6
+    Random Forest Perm Rank: #35
+    Correlation with Attrition: 0.1562
+
+ 7. TotalWorkingYears
+    Consensus Score: 0.0741
+    Random Forest Gini Rank: #5
+    Random Forest Perm Rank: #41
+    Correlation with Attrition: 0.1711
+
+ 8. YearsInCurrentRole
+    Consensus Score: 0.0714
+    Random Forest Gini Rank: #14
+    Random Forest Perm Rank: #24
+    Correlation with Attrition: 0.1605
+
+ 9. YearsAtCompany
+    Consensus Score: 0.0685
+    Random Forest Gini Rank: #3
+    Random Forest Perm Rank: #18
+    Correlation with Attrition: 0.1344
+
+10. JobSatisfaction
+    Consensus Score: 0.0625
+    Random Forest Gini Rank: #17
+    Random Forest Perm Rank: #3
+    Correlation with Attrition: 0.1035
+
+================================================================================
+MODEL COMPARISON
+================================================================================
+
+Three models were analyzed:
+1. Original Decision Tree (depth=15, 156 leaves)
+2. Pruned Decision Tree (depth=3, reduced complexity)
+3. Random Forest (100 trees, ensemble method) - BEST MODEL
+
+Agreement Analysis:
+--------------------------------------------------------------------------------
+
+Original DT (depth=15) - Top 5 Features:
+  1. TotalWorkingYears
+  2. Age
+  3. OverTime
+  4. DailyRate
+  5. MonthlyIncome
+
+Pruned DT (depth=3) - Top 5 Features:
+  1. TotalWorkingYears
+  2. OverTime
+  3. NumCompaniesWorked
+  4. JobLevel
+  5. Age
+
+Random Forest - Top 5 Features:
+  1. MonthlyIncome
+  2. Age
+  3. YearsAtCompany
+  4. OverTime
+  5. TotalWorkingYears
+
+Features in Top 5 for ALL models: ['Age', 'OverTime', 'TotalWorkingYears']
+
+================================================================================
+ANALYSIS METHODS COMPARISON
+================================================================================
+
+Four complementary methods were used:
+
+1. GINI IMPORTANCE (30% weight)
+   - Measures feature contribution to node purity
+   - Fast to compute, built into tree models
+   - Can be biased toward high-cardinality features
+
+2. PERMUTATION IMPORTANCE (30% weight)
+   - Measures performance drop when feature is randomized
+   - Model-agnostic, captures actual predictive value
+   - More reliable for feature selection
+
+3. CORRELATION ANALYSIS (20% weight)
+   - Direct statistical relationship with target
+   - Independent of model complexity
+   - Linear relationships only
+
+4. STATISTICAL SIGNIFICANCE (20% weight)
+   - Mann-Whitney U test for continuous features
+   - Effect size (Cohen's d) quantifies practical importance
+   - P-values indicate statistical confidence
+
+================================================================================
+STATISTICAL SIGNIFICANCE
+================================================================================
+
+Features with Statistically Significant Differences (p < 0.05):
+--------------------------------------------------------------------------------
+JobLevel                       Effect Size: 0.4926, p=2.96e-13
+TotalWorkingYears              Effect Size: 0.4843, p=2.40e-14
+MonthlyIncome                  Effect Size: 0.4791, p=2.95e-14
+YearsInCurrentRole             Effect Size: 0.4623, p=4.43e-12
+YearsWithCurrManager           Effect Size: 0.4487, p=1.81e-11
+Age                            Effect Size: 0.4252, p=5.30e-11
+StockOptionLevel               Effect Size: 0.3741, p=4.01e-11
+YearsAtCompany                 Effect Size: 0.3716, p=2.92e-13
+JobInvolvement                 Effect Size: 0.3427, p=4.65e-06
+JobSatisfaction                Effect Size: 0.2806, p=7.96e-05
+EnvironmentSatisfaction        Effect Size: 0.2739, p=2.17e-04
+DistanceFromHome               Effect Size: 0.2085, p=2.39e-03
+TrainingTimesLastYear          Effect Size: 0.1636, p=4.73e-02
+WorkLifeBalance                Effect Size: 0.1632, p=4.65e-02
+DailyRate                      Effect Size: 0.1544, p=2.90e-02
+
+================================================================================
+FEATURE INTERACTIONS
+================================================================================
+
+Most Frequently Used Features in Decision Tree Splits:
+--------------------------------------------------------------------------------
+(Higher count = more interactions with other features)
+
+Age                             14 splits
+MonthlyIncome                   12 splits
+DailyRate                       10 splits
+MonthlyRate                      9 splits
+DistanceFromHome                 8 splits
+StockOptionLevel                 8 splits
+EnvironmentSatisfaction          7 splits
+HourlyRate                       7 splits
+YearsAtCompany                   7 splits
+TotalWorkingYears                6 splits
+
+================================================================================
+BUSINESS CATEGORY ANALYSIS
+================================================================================
+
+Feature Categories Ranked by Importance:
+--------------------------------------------------------------------------------
+
+5. TENURE/EXPERIENCE
+   Average Rank: 7.7
+   Number of Features: 6
+   Top Feature: Age
+
+2. WORK-LIFE BALANCE
+   Average Rank: 12.7
+   Number of Features: 3
+   Top Feature: OverTime
+
+3. CAREER GROWTH
+   Average Rank: 14.3
+   Number of Features: 3
+   Top Feature: JobLevel
+
+4. SATISFACTION
+   Average Rank: 16.0
+   Number of Features: 4
+   Top Feature: JobSatisfaction
+
+1. COMPENSATION
+   Average Rank: 21.3
+   Number of Features: 6
+   Top Feature: StockOptionLevel
+
+6. ROLE/DEPARTMENT
+   Average Rank: 21.8
+   Number of Features: 6
+   Top Feature: JobRole_Sales Executive
+
+7. DEMOGRAPHICS
+   Average Rank: 28.3
+   Number of Features: 3
+   Top Feature: MaritalStatus_Single
+
+9. EDUCATION
+   Average Rank: 33.6
+   Number of Features: 5
+   Top Feature: Education
+
+8. PERFORMANCE
+   Average Rank: 41.0
+   Number of Features: 1
+   Top Feature: PerformanceRating
+
+================================================================================
+ACTIONABLE FEATURES FOR HR INTERVENTION
+================================================================================
+
+HIGH PRIORITY (Top 20 Overall):
+--------------------------------------------------------------------------------
+Rank # 1: OverTime
+Rank # 2: StockOptionLevel
+Rank #10: JobSatisfaction
+Rank #13: RelationshipSatisfaction
+Rank #17: EnvironmentSatisfaction
+Rank #19: TrainingTimesLastYear
+
+================================================================================
+KEY INSIGHTS & ANSWERS
+================================================================================
+
+1. WHICH FEATURES ARE MOST IMPORTANT?
+----------------------------------------
+   1. OverTime
+   2. StockOptionLevel
+   3. JobLevel
+   4. MonthlyIncome
+   5. Age
+   6. YearsWithCurrManager
+   7. TotalWorkingYears
+   8. YearsInCurrentRole
+   9. YearsAtCompany
+   10. JobSatisfaction
+
+2. DO MODELS AGREE ON FEATURE IMPORTANCE?
+----------------------------------------
+   - Strong Agreement: 3 features in all top-5 lists
+   - Random Forest and Pruned DT show similar patterns
+   - Original DT may overemphasize some features due to overfitting
+
+3. ARE IMPORTANT FEATURES ACTIONABLE?
+----------------------------------------
+   - 6 actionable features in top 20
+   - HR can directly influence: Overtime, Training, Satisfaction, Work-Life Balance
+   - Some important features (Age, Experience) are non-actionable but useful for risk prediction
+
+4. WHICH FEATURES ARE STATISTICALLY SIGNIFICANT?
+----------------------------------------
+   - 16 features show statistically significant differences (p < 0.05)
+   - Largest effect sizes: JobLevel, TotalWorkingYears, MonthlyIncome
+
+5. WHAT FEATURE INTERACTIONS EXIST?
+----------------------------------------
+   - Decision tree uses 34 different features across 155 splits
+   - Most frequently split feature: Age (14 times)
+   - Random Forest captures complex interactions through ensemble
+
+6. WHAT SHOULD HR PRIORITIZE?
+----------------------------------------
+   Based on consensus ranking and actionability:
+
+   Priority 2: Work-Life Balance
+      - Focus on: OverTime
+      - Importance: Rank 12.7
+
+   Priority 3: Career Growth
+      - Focus on: JobLevel
+      - Importance: Rank 14.3
+
+   Priority 4: Satisfaction
+      - Focus on: JobSatisfaction
+      - Importance: Rank 16.0
+
+================================================================================
+TECHNICAL DETAILS
+================================================================================
+
+METHODOLOGY:
+----------------------------------------
+• Gini Importance: Built-in feature_importances_ from sklearn
+• Permutation Importance: n_repeats=10, computed on test set
+• Correlation: Pearson correlation coefficient with Attrition
+• Statistical Tests: Mann-Whitney U with Cohen's d effect size
+• Consensus Ranking: Weighted combination of all methods
+  - Gini (30%): Average of 3 models (10% each)
+  - Permutation (30%): Average of 3 models (10% each)
+  - Correlation (20%): Direct feature-target relationship
+  - Statistical (20%): Effect size from significance tests
