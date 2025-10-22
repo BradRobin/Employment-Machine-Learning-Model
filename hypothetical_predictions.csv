@@ -1,0 +1,6 @@
+Profile,Prediction,Attrition_Probability,Risk_Level,Path_Depth,Key_Feature_1,Key_Feature_2,Key_Feature_3
+Sarah - Junior Analyst (High Risk),NO - Will Stay,0.0,LOW,10,TotalWorkingYears,OverTime,MonthlyIncome
+Michael - Senior Manager (Stable),NO - Will Stay,0.0,LOW,12,TotalWorkingYears,OverTime,NumCompaniesWorked
+Jessica - Sales Executive (Moderate),NO - Will Stay,0.0,LOW,8,TotalWorkingYears,OverTime,MonthlyIncome
+David - Research Scientist (Recent Hire),NO - Will Stay,0.0,LOW,6,TotalWorkingYears,Age,JobRole_Research Scientist
+Patricia - Research Director (Executive),NO - Will Stay,0.0,LOW,12,TotalWorkingYears,OverTime,NumCompaniesWorked

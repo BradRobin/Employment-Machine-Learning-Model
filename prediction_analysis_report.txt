@@ -1,0 +1,263 @@
+================================================================================
+HYPOTHETICAL EMPLOYEE PROFILE PREDICTIONS - DETAILED ANALYSIS
+================================================================================
+
+Model: Decision Tree Classifier
+Profiles Analyzed: 5
+Analysis Date: October 22, 2025
+
+
+================================================================================
+PROFILE 1: Sarah - Junior Analyst (High Risk)
+================================================================================
+
+EMPLOYEE SUMMARY:
+-----------------
+Age: 25 years
+Total Experience: 3 years
+Tenure at Company: 1 years
+Monthly Income: $2,500
+Job Level: 1 (1=Entry, 5=Executive)
+Works Overtime: Yes
+Distance from Home: 25 km
+Job Satisfaction: 1/4
+Work-Life Balance: 1/4
+
+PREDICTION RESULTS:
+-------------------
+Attrition Prediction: NO - Will Stay
+Attrition Probability: 0.0%
+Risk Level: LOW
+
+KEY INFLUENCING FACTORS:
+------------------------
+1. TotalWorkingYears
+2. OverTime
+3. MonthlyIncome
+
+BUSINESS INTERPRETATION:
+------------------------
+This employee shows STRONG RETENTION indicators. They are likely to stay with
+the company for the foreseeable future. The combination of tenure, compensation,
+and satisfaction creates a stable employment situation.
+
+RECOMMENDED ACTIONS:
+--------------------
+• MAINTAIN current compensation and benefits
+• Continue regular performance reviews
+• Provide career development opportunities
+• Recognize and reward contributions
+• No immediate intervention required
+
+COST-BENEFIT ANALYSIS:
+----------------------
+Retention Cost: LOW (standard maintenance)
+Risk of Loss: MINIMAL
+Recommended Investment: Standard retention programs
+ROI: High (low cost to maintain valuable employee)
+
+================================================================================
+
+================================================================================
+PROFILE 2: Michael - Senior Manager (Stable)
+================================================================================
+
+EMPLOYEE SUMMARY:
+-----------------
+Age: 45 years
+Total Experience: 22 years
+Tenure at Company: 15 years
+Monthly Income: $15,000
+Job Level: 4 (1=Entry, 5=Executive)
+Works Overtime: No
+Distance from Home: 5 km
+Job Satisfaction: 4/4
+Work-Life Balance: 3/4
+
+PREDICTION RESULTS:
+-------------------
+Attrition Prediction: NO - Will Stay
+Attrition Probability: 0.0%
+Risk Level: LOW
+
+KEY INFLUENCING FACTORS:
+------------------------
+1. TotalWorkingYears
+2. OverTime
+3. NumCompaniesWorked
+
+BUSINESS INTERPRETATION:
+------------------------
+This employee shows STRONG RETENTION indicators. They are likely to stay with
+the company for the foreseeable future. The combination of tenure, compensation,
+and satisfaction creates a stable employment situation.
+
+RECOMMENDED ACTIONS:
+--------------------
+• MAINTAIN current compensation and benefits
+• Continue regular performance reviews
+• Provide career development opportunities
+• Recognize and reward contributions
+• No immediate intervention required
+
+COST-BENEFIT ANALYSIS:
+----------------------
+Retention Cost: LOW (standard maintenance)
+Risk of Loss: MINIMAL
+Recommended Investment: Standard retention programs
+ROI: High (low cost to maintain valuable employee)
+
+================================================================================
+
+================================================================================
+PROFILE 3: Jessica - Sales Executive (Moderate)
+================================================================================
+
+EMPLOYEE SUMMARY:
+-----------------
+Age: 32 years
+Total Experience: 10 years
+Tenure at Company: 5 years
+Monthly Income: $6,000
+Job Level: 2 (1=Entry, 5=Executive)
+Works Overtime: Yes
+Distance from Home: 10 km
+Job Satisfaction: 3/4
+Work-Life Balance: 2/4
+
+PREDICTION RESULTS:
+-------------------
+Attrition Prediction: NO - Will Stay
+Attrition Probability: 0.0%
+Risk Level: LOW
+
+KEY INFLUENCING FACTORS:
+------------------------
+1. TotalWorkingYears
+2. OverTime
+3. MonthlyIncome
+
+BUSINESS INTERPRETATION:
+------------------------
+This employee shows STRONG RETENTION indicators. They are likely to stay with
+the company for the foreseeable future. The combination of tenure, compensation,
+and satisfaction creates a stable employment situation.
+
+RECOMMENDED ACTIONS:
+--------------------
+• MAINTAIN current compensation and benefits
+• Continue regular performance reviews
+• Provide career development opportunities
+• Recognize and reward contributions
+• No immediate intervention required
+
+COST-BENEFIT ANALYSIS:
+----------------------
+Retention Cost: LOW (standard maintenance)
+Risk of Loss: MINIMAL
+Recommended Investment: Standard retention programs
+ROI: High (low cost to maintain valuable employee)
+
+================================================================================
+
+================================================================================
+PROFILE 4: David - Research Scientist (Recent Hire)
+================================================================================
+
+EMPLOYEE SUMMARY:
+-----------------
+Age: 28 years
+Total Experience: 2 years
+Tenure at Company: 0 years
+Monthly Income: $4,500
+Job Level: 2 (1=Entry, 5=Executive)
+Works Overtime: No
+Distance from Home: 15 km
+Job Satisfaction: 4/4
+Work-Life Balance: 3/4
+
+PREDICTION RESULTS:
+-------------------
+Attrition Prediction: NO - Will Stay
+Attrition Probability: 0.0%
+Risk Level: LOW
+
+KEY INFLUENCING FACTORS:
+------------------------
+1. TotalWorkingYears
+2. Age
+3. JobRole_Research Scientist
+
+BUSINESS INTERPRETATION:
+------------------------
+This employee shows STRONG RETENTION indicators. They are likely to stay with
+the company for the foreseeable future. The combination of tenure, compensation,
+and satisfaction creates a stable employment situation.
+
+RECOMMENDED ACTIONS:
+--------------------
+• MAINTAIN current compensation and benefits
+• Continue regular performance reviews
+• Provide career development opportunities
+• Recognize and reward contributions
+• No immediate intervention required
+
+COST-BENEFIT ANALYSIS:
+----------------------
+Retention Cost: LOW (standard maintenance)
+Risk of Loss: MINIMAL
+Recommended Investment: Standard retention programs
+ROI: High (low cost to maintain valuable employee)
+
+================================================================================
+
+================================================================================
+PROFILE 5: Patricia - Research Director (Executive)
+================================================================================
+
+EMPLOYEE SUMMARY:
+-----------------
+Age: 52 years
+Total Experience: 28 years
+Tenure at Company: 20 years
+Monthly Income: $19,000
+Job Level: 5 (1=Entry, 5=Executive)
+Works Overtime: No
+Distance from Home: 8 km
+Job Satisfaction: 4/4
+Work-Life Balance: 4/4
+
+PREDICTION RESULTS:
+-------------------
+Attrition Prediction: NO - Will Stay
+Attrition Probability: 0.0%
+Risk Level: LOW
+
+KEY INFLUENCING FACTORS:
+------------------------
+1. TotalWorkingYears
+2. OverTime
+3. NumCompaniesWorked
+
+BUSINESS INTERPRETATION:
+------------------------
+This employee shows STRONG RETENTION indicators. They are likely to stay with
+the company for the foreseeable future. The combination of tenure, compensation,
+and satisfaction creates a stable employment situation.
+
+RECOMMENDED ACTIONS:
+--------------------
+• MAINTAIN current compensation and benefits
+• Continue regular performance reviews
+• Provide career development opportunities
+• Recognize and reward contributions
+• No immediate intervention required
+
+COST-BENEFIT ANALYSIS:
+----------------------
+Retention Cost: LOW (standard maintenance)
+Risk of Loss: MINIMAL
+Recommended Investment: Standard retention programs
+ROI: High (low cost to maintain valuable employee)
+
+================================================================================
