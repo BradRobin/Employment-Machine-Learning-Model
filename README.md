@@ -65,6 +65,57 @@ The dataset includes:
 3. `categorical_features_distribution.png` - Bar charts of categorical features
 4. `correlation_matrix.png` - Heatmap showing feature correlations
 
+## Task 2: Data Preprocessing ✓
+
+### Completed Steps:
+1. **Data Cleaning**
+   - Removed 4 irrelevant/constant features:
+     - `EmployeeCount` (constant value: 1)
+     - `EmployeeNumber` (identifier, not predictive)
+     - `Over18` (constant value: 'Y')
+     - `StandardHours` (constant value: 80)
+   - Reduced from 35 to 31 features
+
+2. **Categorical Variable Encoding**
+   - **Label Encoding** (3 binary + 1 ordinal variable):
+     - `Attrition`: No=0, Yes=1 (target variable)
+     - `Gender`: Female=0, Male=1
+     - `OverTime`: No=0, Yes=1
+     - `BusinessTravel`: Non-Travel=0, Travel_Rarely=1, Travel_Frequently=2
+   
+   - **One-Hot Encoding** (4 nominal variables):
+     - `Department` (3 categories → 2 dummy variables)
+     - `EducationField` (6 categories → 5 dummy variables)
+     - `JobRole` (9 categories → 8 dummy variables)
+     - `MaritalStatus` (3 categories → 2 dummy variables)
+   
+   - Applied `drop_first=True` to avoid multicollinearity
+   - Final feature count: **43 features**
+
+3. **Train-Test Split (80/20)**
+   - **Training Set**: 1,176 samples (80%)
+     - No Attrition: 986 (83.84%)
+     - Yes Attrition: 190 (16.16%)
+   
+   - **Testing Set**: 294 samples (20%)
+     - No Attrition: 247 (84.01%)
+     - Yes Attrition: 47 (15.99%)
+   
+   - Used `stratify=y` to maintain class distribution
+   - Random state set to 42 for reproducibility
+
+4. **Saved Preprocessed Data**
+   - `X_train.csv` - Training features (1,176 × 43)
+   - `y_train.csv` - Training labels (1,176 × 1)
+   - `X_test.csv` - Testing features (294 × 43)
+   - `y_test.csv` - Testing labels (294 × 1)
+
+### Key Achievements:
+✓ All categorical variables successfully encoded
+✓ Proper train-test split with stratification
+✓ Class balance maintained in both sets
+✓ Data ready for model training
+
 ## Installation & Setup
 
 ### Requirements
@@ -92,6 +143,17 @@ This will:
 - Generate statistical summaries
 - Create visualizations (saved as PNG files)
 
+### Run the Data Preprocessing Script
+```bash
+python data_preprocessing.py
+```
+
+This will:
+- Clean the dataset (remove irrelevant features)
+- Encode categorical variables (label & one-hot encoding)
+- Split data into training (80%) and testing (20%) sets
+- Save preprocessed datasets: `X_train.csv`, `X_test.csv`, `y_train.csv`, `y_test.csv`
+
 ## Key Findings
 
 ### Data Quality
@@ -111,23 +173,17 @@ This will:
 
 ## Next Steps
 
-1. **Data Preprocessing**
-   - Encode categorical variables (One-Hot Encoding / Label Encoding)
-   - Handle class imbalance
-   - Feature scaling/normalization
-   - Remove irrelevant features (EmployeeCount, StandardHours, Over18)
+1. ~~**Data Preprocessing**~~ ✓ COMPLETED
+   - ~~Encode categorical variables (One-Hot Encoding / Label Encoding)~~ ✓
+   - ~~Handle class imbalance~~ (Maintained via stratification)
+   - ~~Remove irrelevant features (EmployeeCount, StandardHours, Over18)~~ ✓
 
-2. **Feature Engineering**
-   - Create interaction features
-   - Derive new meaningful features
-   - Feature selection based on importance
+2. **Build Decision Tree Model**
+   - Initialize DecisionTreeClassifier
+   - Train on X_train and y_train
+   - Make predictions on X_test
 
-3. **Model Building**
-   - Build Decision Tree Classifier
-   - Tune hyperparameters
-   - Implement cross-validation
-
-4. **Model Evaluation**
+3. **Model Evaluation**
    - Accuracy, Precision, Recall, F1-Score
    - Confusion Matrix
    - ROC-AUC Curve
@@ -142,10 +198,17 @@ This will:
 ```
 Employment-Machine-Learning-Model/
 │
-├── WA_Fn-UseC_-HR-Employee-Attrition.csv    # Dataset
-├── employment_analysis.py                    # EDA script
+├── WA_Fn-UseC_-HR-Employee-Attrition.csv    # Original dataset
+│
+├── employment_analysis.py                    # Task 1: EDA script
+├── data_preprocessing.py                     # Task 2: Preprocessing script
 ├── requirements.txt                          # Python dependencies
 ├── README.md                                 # Project documentation
+│
+├── X_train.csv                               # Training features (1,176 × 43)
+├── X_test.csv                                # Testing features (294 × 43)
+├── y_train.csv                               # Training labels
+├── y_test.csv                                # Testing labels
 │
 ├── attrition_distribution.png               # Visualization: Target variable
 ├── numerical_features_distribution.png       # Visualization: Numerical features
