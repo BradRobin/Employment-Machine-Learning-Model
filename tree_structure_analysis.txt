@@ -1,0 +1,59 @@
+================================================================================
+DECISION TREE STRUCTURE ANALYSIS
+================================================================================
+
+Tree Statistics:
+  Total Nodes: 311
+  Leaf Nodes: 156
+  Internal Nodes: 155
+  Maximum Depth: 15
+
+Samples Distribution:
+  Mean: 36.9
+  Median: 7.0
+  Min: 1
+  Max: 1176
+
+Node Purity (Gini Impurity):
+  Mean: 0.2541
+  Pure Nodes (Gini = 0): 153
+
+================================================================================
+FEATURE USAGE IN TREE SPLITS
+================================================================================
+
+ 1. Age                                      -  14 splits
+ 2. MonthlyIncome                            -  12 splits
+ 3. DailyRate                                -  10 splits
+ 4. MonthlyRate                              -   9 splits
+ 5. DistanceFromHome                         -   8 splits
+ 6. StockOptionLevel                         -   8 splits
+ 7. EnvironmentSatisfaction                  -   7 splits
+ 8. HourlyRate                               -   7 splits
+ 9. YearsAtCompany                           -   7 splits
+10. TotalWorkingYears                        -   6 splits
+11. RelationshipSatisfaction                 -   6 splits
+12. TrainingTimesLastYear                    -   6 splits
+13. NumCompaniesWorked                       -   6 splits
+14. YearsSinceLastPromotion                  -   6 splits
+15. YearsInCurrentRole                       -   5 splits
+16. YearsWithCurrManager                     -   5 splits
+17. PercentSalaryHike                        -   4 splits
+18. EducationField_Technical Degree          -   4 splits
+19. Education                                -   3 splits
+20. JobRole_Sales Representative             -   2 splits
+21. WorkLifeBalance                          -   2 splits
+22. Gender                                   -   2 splits
+23. JobSatisfaction                          -   2 splits
+24. EducationField_Medical                   -   2 splits
+25. JobRole_Sales Executive                  -   2 splits
+26. JobLevel                                 -   2 splits
+27. JobRole_Research Scientist               -   1 splits
+28. BusinessTravel                           -   1 splits
+29. EducationField_Life Sciences             -   1 splits
+30. OverTime                                 -   1 splits
+31. JobInvolvement                           -   1 splits
+32. Department_Sales                         -   1 splits
+33. PerformanceRating                        -   1 splits
+34. JobRole_Human Resources                  -   1 splits
+

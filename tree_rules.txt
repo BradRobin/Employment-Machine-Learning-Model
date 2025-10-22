@@ -1,0 +1,134 @@
+================================================================================
+DECISION TREE RULES - TOP 5 LEVELS
+================================================================================
+
+Decision Tree Structure (if-then rules):
+Note: Each path from root to leaf represents a classification rule.
+
+|--- TotalWorkingYears <= 2.50
+|   |--- Age <= 33.50
+|   |   |--- JobRole_Research Scientist <= 0.50
+|   |   |   |--- DailyRate <= 122.50
+|   |   |   |   |--- weights: [0.60, 0.00] class: 0
+|   |   |   |--- DailyRate >  122.50
+|   |   |   |   |--- MonthlyRate <= 3063.50
+|   |   |   |   |   |--- weights: [0.60, 0.00] class: 0
+|   |   |   |   |--- MonthlyRate >  3063.50
+|   |   |   |   |   |--- BusinessTravel <= 0.50
+|   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |--- BusinessTravel >  0.50
+|   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |--- JobRole_Research Scientist >  0.50
+|   |   |   |--- DistanceFromHome <= 6.00
+|   |   |   |   |--- weights: [5.96, 0.00] class: 0
+|   |   |   |--- DistanceFromHome >  6.00
+|   |   |   |   |--- StockOptionLevel <= 0.50
+|   |   |   |   |   |--- MonthlyIncome <= 2797.00
+|   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |--- MonthlyIncome >  2797.00
+|   |   |   |   |   |   |--- weights: [1.19, 0.00] class: 0
+|   |   |   |   |--- StockOptionLevel >  0.50
+|   |   |   |   |   |--- weights: [1.79, 0.00] class: 0
+|   |--- Age >  33.50
+|   |   |--- EnvironmentSatisfaction <= 2.00
+|   |   |   |--- TrainingTimesLastYear <= 2.50
+|   |   |   |   |--- weights: [0.00, 6.19] class: 1
+|   |   |   |--- TrainingTimesLastYear >  2.50
+|   |   |   |   |--- weights: [1.19, 0.00] class: 0
+|   |   |--- EnvironmentSatisfaction >  2.00
+|   |   |   |--- weights: [6.56, 0.00] class: 0
+|--- TotalWorkingYears >  2.50
+|   |--- OverTime <= 0.50
+|   |   |--- NumCompaniesWorked <= 4.50
+|   |   |   |--- WorkLifeBalance <= 1.50
+|   |   |   |   |--- PercentSalaryHike <= 17.50
+|   |   |   |   |   |--- DailyRate <= 1382.50
+|   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |--- DailyRate >  1382.50
+|   |   |   |   |   |   |--- weights: [2.39, 0.00] class: 0
+|   |   |   |   |--- PercentSalaryHike >  17.50
+|   |   |   |   |   |--- weights: [5.37, 0.00] class: 0
+|   |   |   |--- WorkLifeBalance >  1.50
+|   |   |   |   |--- JobRole_Sales Representative <= 0.50
+|   |   |   |   |   |--- DistanceFromHome <= 14.50
+|   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |--- DistanceFromHome >  14.50
+|   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |--- JobRole_Sales Representative >  0.50
+|   |   |   |   |   |--- TrainingTimesLastYear <= 2.50
+|   |   |   |   |   |   |--- weights: [4.77, 0.00] class: 0
+|   |   |   |   |   |--- TrainingTimesLastYear >  2.50
+|   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |--- NumCompaniesWorked >  4.50
+|   |   |   |--- Age <= 37.50
+|   |   |   |   |--- StockOptionLevel <= 0.50
+|   |   |   |   |   |--- TrainingTimesLastYear <= 1.50
+|   |   |   |   |   |   |--- weights: [1.79, 0.00] class: 0
+|   |   |   |   |   |--- TrainingTimesLastYear >  1.50
+|   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |--- StockOptionLevel >  0.50
+|   |   |   |   |   |--- PercentSalaryHike <= 14.50
+|   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |--- PercentSalaryHike >  14.50
+|   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |--- Age >  37.50
+|   |   |   |   |--- YearsSinceLastPromotion <= 8.50
+|   |   |   |   |   |--- JobRole_Sales Executive <= 0.50
+|   |   |   |   |   |   |--- weights: [40.55, 0.00] class: 0
+|   |   |   |   |   |--- JobRole_Sales Executive >  0.50
+|   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |--- YearsSinceLastPromotion >  8.50
+|   |   |   |   |   |--- PercentSalaryHike <= 11.50
+|   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |--- PercentSalaryHike >  11.50
+|   |   |   |   |   |   |--- weights: [4.17, 0.00] class: 0
+|   |--- OverTime >  0.50
+|   |   |--- MonthlyIncome <= 4001.50
+|   |   |   |--- NumCompaniesWorked <= 0.50
+|   |   |   |   |--- Age <= 26.50
+|   |   |   |   |   |--- weights: [0.00, 3.09] class: 1
+|   |   |   |   |--- Age >  26.50
+|   |   |   |   |   |--- weights: [8.35, 0.00] class: 0
+|   |   |   |--- NumCompaniesWorked >  0.50
+|   |   |   |   |--- JobLevel <= 1.50
+|   |   |   |   |   |--- MonthlyIncome <= 2476.00
+|   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |--- MonthlyIncome >  2476.00
+|   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |--- JobLevel >  1.50
+|   |   |   |   |   |--- StockOptionLevel <= 0.50
+|   |   |   |   |   |   |--- weights: [0.60, 0.00] class: 0
+|   |   |   |   |   |--- StockOptionLevel >  0.50
+|   |   |   |   |   |   |--- weights: [2.39, 0.00] class: 0
+|   |   |--- MonthlyIncome >  4001.50
+|   |   |   |--- StockOptionLevel <= 0.50
+|   |   |   |   |--- Department_Sales <= 0.50
+|   |   |   |   |   |--- NumCompaniesWorked <= 6.50
+|   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |--- NumCompaniesWorked >  6.50
+|   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |--- Department_Sales >  0.50
+|   |   |   |   |   |--- DailyRate <= 208.00
+|   |   |   |   |   |   |--- weights: [2.39, 0.00] class: 0
+|   |   |   |   |   |--- DailyRate >  208.00
+|   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |--- StockOptionLevel >  0.50
+|   |   |   |   |--- DailyRate <= 766.50
+|   |   |   |   |   |--- DailyRate <= 403.50
+|   |   |   |   |   |   |--- weights: [15.51, 0.00] class: 0
+|   |   |   |   |   |--- DailyRate >  403.50
+|   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |--- DailyRate >  766.50
+|   |   |   |   |   |--- JobRole_Human Resources <= 0.50
+|   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |--- JobRole_Human Resources >  0.50
+|   |   |   |   |   |   |--- truncated branch of depth 2
+
+
+================================================================================
+Tree Statistics:
+================================================================================
+Total Depth: 15
+Total Leaves: 156
+Total Features: 43
+

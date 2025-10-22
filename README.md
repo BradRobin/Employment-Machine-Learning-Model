@@ -209,6 +209,139 @@ The dataset includes:
    - Optimize max_depth, min_samples_split, min_samples_leaf
    - Experiment with different criteria (gini vs entropy)
 
+## Task 4: Enhanced Model Visualization ✓
+
+### Completed Steps:
+1. **Multiple plot_tree() Visualizations**
+   - Created visualizations at different detail levels
+   - Used matplotlib for high-quality PNG outputs
+   - All visualizations use color coding and proper labels
+
+2. **Visualization Outputs Created:**
+   
+   **Quick Overview:**
+   - `tree_top3_levels.png` - Top 3 levels (main decision points)
+     - Shows the most important splits
+     - Best for presentations and quick understanding
+     - Most readable and clearest visualization
+   
+   **Moderate Detail:**
+   - `tree_top5_levels.png` - Top 5 levels
+     - Balance between detail and readability
+     - Good for technical discussions
+   
+   **Complete Structure:**
+   - `tree_full_visualization.png` - All 15 levels (LARGE FILE)
+     - Shows complete tree structure
+     - All 311 nodes and 156 leaves
+     - Use for detailed analysis and zooming
+   
+   **Special Views:**
+   - `tree_with_proportions.png` - Top 4 levels with class proportions
+     - Shows percentage distributions instead of counts
+     - Useful for understanding class balance at each node
+
+3. **Graphviz Outputs**
+   - `tree_graphviz.dot` - DOT source file created
+   - Can be rendered to PDF/SVG if Graphviz system package is installed
+   - Optional enhancement for publication-quality diagrams
+
+4. **Decision Rules & Analysis**
+   
+   **Text-Based Rules:**
+   - `tree_rules.txt` - Complete decision rules (if-then format)
+     - Top 5 levels exported for readability
+     - Shows exact thresholds and conditions
+     - Easy to copy and reference
+   
+   **Decision Path Examples:**
+   - `tree_decision_paths.txt` - Analyzed example predictions
+     - True Positive: Correctly caught attrition
+     - False Negative: Missed attrition case  
+     - True Negative: Correctly predicted retention
+     - False Positive: False alarm case
+     - Shows exact path from root to leaf for each
+
+5. **Tree Structure Analysis**
+   - `tree_structure_analysis.txt` - Comprehensive statistics
+     - 311 total nodes, 156 leaf nodes
+     - Depth: 15 levels
+     - Feature usage counts for all splits
+   
+   - `tree_structure_analysis.png` - Visual statistics
+     - Samples per node distribution
+     - Gini impurity distribution
+     - Top 10 features used in splits
+     - Summary statistics panel
+
+6. **Comprehensive Report**
+   - `tree_visualization_report.txt` - Full documentation
+     - How to use each visualization
+     - Interpretation guidelines
+     - Key insights and recommendations
+     - Business context and applications
+
+### Key Insights from Visualizations:
+
+**Primary Decision Point (Root Node):**
+- **Feature**: TotalWorkingYears
+- **Threshold**: ≤ 2.50 years
+- This single split divides the dataset into two major groups
+- Employees with ≤2.5 years experience have higher attrition risk
+
+**Most Used Features in Tree:**
+1. Age (14 splits throughout tree)
+2. MonthlyIncome (12 splits)
+3. DailyRate (10 splits)
+4. MonthlyRate (9 splits)
+5. DistanceFromHome (8 splits)
+
+**Tree Complexity Indicators:**
+- 311 nodes total (very complex!)
+- Average 36.9 samples per node
+- Median 7.0 samples per node (many small leaf nodes)
+- This confirms overfitting - many branches with few samples
+
+**Decision Path Insights:**
+- True Positive case: 6-node path using TotalWorkingYears, OverTime, MonthlyIncome
+- False Negative case: 4-node path - tree predicted retention but employee left
+- Paths can be very deep (up to 15 levels) showing model complexity
+
+### Visualization Usage Guide:
+
+**For Stakeholders/Presentations:**
+- Use `tree_top3_levels.png`
+- Shows only the most critical 3 decision points
+- Easy to explain: "First we check TotalWorkingYears..."
+
+**For Technical Teams:**
+- Use `tree_top5_levels.png` or `tree_structure_analysis.png`
+- Shows enough detail to understand logic
+- Good balance of information
+
+**For Deep Analysis:**
+- Use `tree_full_visualization.png` 
+- Can zoom in to inspect specific branches
+- Useful for debugging model decisions
+
+**For Documentation:**
+- Reference `tree_rules.txt` for exact rules
+- Include `tree_decision_paths.txt` for examples
+- Cite `tree_visualization_report.txt` for methodology
+
+### Files Generated (11 total):
+✓ 5 PNG visualizations (plot_tree)  
+✓ 1 DOT file (Graphviz source)  
+✓ 3 Text analysis files (rules, paths, structure)  
+✓ 1 PNG structure analysis  
+✓ 1 Comprehensive report
+
+### Optional Enhancement:
+Install Graphviz system package to render DOT file to PDF/SVG:
+1. Download from: https://graphviz.org/download/
+2. Add to system PATH
+3. Run script again to generate vector formats
+
 ## Installation & Setup
 
 ### Requirements
@@ -259,6 +392,19 @@ This will:
 - Create visualizations (confusion matrix, ROC curve, feature importance)
 - Save trained model and comprehensive evaluation report
 
+### Run the Tree Visualization Script
+```bash
+python tree_visualization.py
+```
+
+This will:
+- Load the trained Decision Tree model
+- Create multiple tree visualizations at different detail levels
+- Extract and document decision rules
+- Analyze example decision paths
+- Generate tree structure statistics
+- Save comprehensive visualization report
+
 ## Key Findings
 
 ### Data Quality
@@ -294,7 +440,14 @@ This will:
    - ~~ROC-AUC Curve~~ ✓
    - ~~Feature Importance Analysis~~ ✓
 
-4. **Model Optimization** (Recommended Next Task)
+4. ~~**Model Visualization**~~ ✓ COMPLETED
+   - ~~Visualize decision tree using plot_tree()~~ ✓
+   - ~~Create multiple visualization levels~~ ✓
+   - ~~Extract decision rules~~ ✓
+   - ~~Analyze decision paths~~ ✓
+   - ~~Generate structure analysis~~ ✓
+
+5. **Model Optimization** (Recommended Next Task)
    - Address overfitting through hyperparameter tuning
    - Tune: max_depth (5-10), min_samples_split (10-50), min_samples_leaf (5-20)
    - Implement cross-validation for robust evaluation
@@ -311,9 +464,11 @@ Employment-Machine-Learning-Model/
 ├── employment_analysis.py                    # Task 1: EDA script
 ├── data_preprocessing.py                     # Task 2: Preprocessing script
 ├── model_training.py                         # Task 3: Model training script
+├── tree_visualization.py                     # Task 4: Tree visualization script
 ├── requirements.txt                          # Python dependencies
 ├── README.md                                 # Project documentation
 ├── PREPROCESSING_SUMMARY.txt                 # Data preprocessing summary
+├── MODEL_TRAINING_SUMMARY.txt                # Model training summary
 │
 ├── X_train.csv                               # Training features (1,176 × 43)
 ├── X_test.csv                                # Testing features (294 × 43)
@@ -326,14 +481,27 @@ Employment-Machine-Learning-Model/
 ├── feature_importance.csv                    # Feature importance rankings
 ├── model_evaluation_report.txt               # Comprehensive model evaluation
 │
-├── attrition_distribution.png               # Visualization: Target variable
-├── numerical_features_distribution.png       # Visualization: Numerical features
-├── categorical_features_distribution.png     # Visualization: Categorical features
-├── correlation_matrix.png                    # Visualization: Feature correlations
-├── confusion_matrix.png                      # Visualization: Model confusion matrices
-├── roc_curve.png                             # Visualization: ROC curve
-├── feature_importance.png                    # Visualization: Top 20 features
-└── decision_tree_visualization.png           # Visualization: Tree structure
+├── attrition_distribution.png               # EDA: Target variable distribution
+├── numerical_features_distribution.png       # EDA: Numerical features
+├── categorical_features_distribution.png     # EDA: Categorical features
+├── correlation_matrix.png                    # EDA: Feature correlations
+│
+├── confusion_matrix.png                      # Model: Confusion matrices
+├── roc_curve.png                             # Model: ROC curve (AUC)
+├── feature_importance.png                    # Model: Top 20 features
+├── decision_tree_visualization.png           # Model: Tree structure (depth 3)
+│
+├── tree_top3_levels.png                      # Tree Viz: Top 3 levels (best for presentations)
+├── tree_top5_levels.png                      # Tree Viz: Top 5 levels (moderate detail)
+├── tree_full_visualization.png               # Tree Viz: Complete tree (all 15 levels)
+├── tree_with_proportions.png                 # Tree Viz: With class proportions
+├── tree_structure_analysis.png               # Tree Viz: Structure statistics
+│
+├── tree_graphviz.dot                         # Tree: Graphviz DOT source
+├── tree_rules.txt                            # Tree: Decision rules (if-then format)
+├── tree_decision_paths.txt                   # Tree: Example decision paths
+├── tree_structure_analysis.txt               # Tree: Detailed statistics
+└── tree_visualization_report.txt             # Tree: Comprehensive visualization guide
 ```
 
 ## Author

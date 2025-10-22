@@ -1,0 +1,76 @@
+================================================================================
+EXAMPLE DECISION PATHS
+================================================================================
+
+
+True Positive: Correctly Predicted Attrition
+--------------------------------------------------------------------------------
+Test Sample Index: 67
+Actual Class: Yes Attrition
+Predicted Class: Yes Attrition
+Prediction Probability: 1.0000
+
+Decision Path (nodes traversed: 6):
+
+  Node 0: TotalWorkingYears > 2.50 (value: 6.00) → Go right
+  Node 50: OverTime > 0.50 (value: 1.00) → Go right
+  Node 200: MonthlyIncome <= 4001.50 (value: 2148.00) → Go left
+  Node 201: NumCompaniesWorked <= 0.50 (value: 0.00) → Go left
+  Node 202: Age <= 26.50 (value: 26.00) → Go left
+  Node 203: LEAF - Prediction: Yes Attrition (samples: 1)
+
+
+False Negative: Missed Attrition
+--------------------------------------------------------------------------------
+Test Sample Index: 4
+Actual Class: Yes Attrition
+Predicted Class: No Attrition
+Prediction Probability: 0.0000
+
+Decision Path (nodes traversed: 4):
+
+  Node 0: TotalWorkingYears <= 2.50 (value: 2.00) → Go left
+  Node 1: Age > 33.50 (value: 36.00) → Go right
+  Node 45: EnvironmentSatisfaction > 2.00 (value: 4.00) → Go right
+  Node 49: LEAF - Prediction: No Attrition (samples: 11)
+
+
+True Negative: Correctly Predicted Retention
+--------------------------------------------------------------------------------
+Test Sample Index: 1
+Actual Class: No Attrition
+Predicted Class: No Attrition
+Prediction Probability: 0.0000
+
+Decision Path (nodes traversed: 12):
+
+  Node 0: TotalWorkingYears > 2.50 (value: 10.00) → Go right
+  Node 50: OverTime <= 0.50 (value: 0.00) → Go left
+  Node 51: NumCompaniesWorked <= 4.50 (value: 1.00) → Go left
+  Node 52: WorkLifeBalance > 1.50 (value: 3.00) → Go right
+  Node 64: JobRole_Sales Representative <= 0.50 (value: 0.00) → Go left
+  Node 65: DistanceFromHome <= 14.50 (value: 2.00) → Go left
+  Node 66: YearsSinceLastPromotion > 3.50 (value: 7.00) → Go right
+  Node 84: Age <= 45.50 (value: 44.00) → Go left
+  Node 85: PercentSalaryHike > 11.50 (value: 13.00) → Go right
+  Node 91: DailyRate > 150.00 (value: 1117.00) → Go right
+  ... (2 more nodes)
+
+
+False Positive: False Alarm
+--------------------------------------------------------------------------------
+Test Sample Index: 0
+Actual Class: No Attrition
+Predicted Class: Yes Attrition
+Prediction Probability: 1.0000
+
+Decision Path (nodes traversed: 8):
+
+  Node 0: TotalWorkingYears <= 2.50 (value: 1.00) → Go left
+  Node 1: Age <= 33.50 (value: 24.00) → Go left
+  Node 2: JobRole_Research Scientist <= 0.50 (value: 0.00) → Go left
+  Node 3: DailyRate > 122.50 (value: 830.00) → Go right
+  Node 5: MonthlyRate > 3063.50 (value: 7103.00) → Go right
+  Node 7: BusinessTravel <= 0.50 (value: 0.00) → Go left
+  Node 8: MonthlyRate <= 16430.50 (value: 7103.00) → Go left
+  Node 9: LEAF - Prediction: Yes Attrition (samples: 1)
